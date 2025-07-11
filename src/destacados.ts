@@ -58,11 +58,11 @@ function crearCard(inmueble: Inmueble): string {
         <p class="card__description">${descripcionCorta}</p>
 
         <p class="card__icons">
-          <img src="assets/icons/hab-icon.svg" class="icon" /> ${inmueble.Alcobas}
+          <img src="assets/icon/hab-icon.svg" class="icon" /> ${inmueble.Alcobas}
           &nbsp;
-          <img src="assets/icons/banio-icon.svg" class="icon" /> ${inmueble.banios}
+          <img src="assets/icon/banio-icon.svg" class="icon" /> ${inmueble.banios}
           &nbsp;
-          <img src="assets/icons/area-icon.svg" class="icon" /> ${inmueble.AreaConstruida} m²
+          <img src="assets/icon/area-icon.svg" class="icon" /> ${inmueble.AreaConstruida} m²
         </p>
 
   
