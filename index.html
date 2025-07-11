@@ -18,20 +18,31 @@
         <!-- Links  -->
         <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
         <link rel="stylesheet" type="text/css" href="style.css" />
-
         <title>RE Inmobiliaria SAS</title>
     </head>
     <body>
-        <header>
-            <h1>Welcome to My Web Page</h1>
-        </header>
-        <main>
-            <p>This is a simple web page to demonstrate HTML structure.</p>
-            <H1>HOLS</H1>
-        </main>
-        <footer>
-            <p>&copy; 2023 My Web Page</p>
-        </footer>
+        <!-- Hero Search Section -->
+        <div class="hero-section">
+        <div class="hero-overlay">
+            <h1 class="hero-title">Encuentra el hogar de tus sueños</h1>
+            <div class="hero-search">
+            <div class="input-group">
+                <input type="text" placeholder="inserte información" class="search-input" />
+                <button class="search-button">buscar</button>
+            </div>
+            <div class="select-group">
+                <select class="search-select">
+                <option value="">tipo de gestión</option>
+                <!-- More options... -->
+                </select>
+                <select class="search-select">
+                <option value="">tipo de gestión</option>
+                <!-- More options... -->
+                </select>
+            </div>
+            </div>
+        </div>
+        </div>
     <script id="site" type="module" src="./dist/main.js"></script>
     </body>
 </html>
