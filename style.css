@@ -189,11 +189,12 @@
   font-family: "Montserrat";
   
 }
-
 .container-servicio:hover {
   transform: scale(1.1);
   filter: brightness(1.5);
   transition: transform 0.3s ease, filter 0.3s ease;
+  z-index: 10; /* Ensure it stays on top */
+  position: relative; /* Required for z-index to take effect */
 }
 
 .container-servicio:hover .servicio-title {
