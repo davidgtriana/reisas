@@ -21,12 +21,12 @@ async function loadMainHeader() {
         mainHeaderElement.innerHTML = html;
 
          // ====== ADD INDEX CLASS IF ON index.html OR ROOT ======
-        const header = mainHeaderElement.querySelector("#main-header");
+        const header = mainHeaderElement.querySelector("#main-header")!;
         const path = window.location.pathname.toLowerCase();
-        if (header && (path === "/" || path.endsWith("/index.html"))) {
+        if (path === "/" || path.endsWith("index.html")) {
             header.classList.add("index");
         }
-        header!.classList.add("unscrolled");
+        header.classList.add("unscrolled");
 
     } catch (error) {
         console.error("Error loading main header:", error);

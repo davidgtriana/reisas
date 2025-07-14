@@ -99,6 +99,7 @@
     padding-right: 20px;
 
     transition: 0.5s ease-in-out;
+    z-index: 100;
 }
 
 #main-header.index.unscrolled .logo{
@@ -120,7 +121,6 @@
 }
 
 #main-header.index.unscrolled a:hover{
-    color: var(--primary-color);
     font-weight: 500;
 }
 
