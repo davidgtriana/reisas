@@ -1,13 +1,52 @@
 "use strict";
-let header = document.getElementById("main-header");
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 const scrollThreshold = 50; // px scrolled before shrinking
+window.addEventListener("DOMContentLoaded", loadMainHeader);
+function loadMainHeader() {
+    return __awaiter(this, void 0, void 0, function* () {
+        let mainHeaderElement = document.getElementById("main-header-container");
+        if (!mainHeaderElement) {
+            console.error("Main header element not found.");
+            return;
+        }
+        try {
+            const res = yield fetch("/component/main-header.html");
+            if (!res.ok) {
+                console.error("Failed to load header:", res.status, res.statusText);
+                return;
+            }
+            const html = yield res.text();
+            mainHeaderElement.innerHTML = html;
+            // ====== ADD INDEX CLASS IF ON index.html OR ROOT ======
+            const header = mainHeaderElement.querySelector("#main-header");
+            const path = window.location.pathname.toLowerCase();
+            if (header && (path === "/" || path.endsWith("/index.html"))) {
+                header.classList.add("index");
+            }
+            header.classList.add("unscrolled");
+        }
+        catch (error) {
+            console.error("Error loading main header:", error);
+        }
+    });
+}
+;
 window.addEventListener('scroll', () => {
-    if (!header)
-        return; // Ensure header exists
+    let mainHeaderElement = document.getElementById("main-header");
+    if (!mainHeaderElement)
+        return;
     if (window.scrollY > scrollThreshold) {
-        header.classList.add('scrolled');
+        mainHeaderElement.classList.remove('unscrolled');
     }
     else {
-        header.classList.remove('scrolled');
+        mainHeaderElement.classList.add('unscrolled');
     }
 });

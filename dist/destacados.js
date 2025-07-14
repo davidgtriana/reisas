@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => __awaiter(void 0, void 0, vo
     try {
         const res = yield fetch(url, { headers });
         const data = yield res.json();
-        console.log(data);
         const contenedor = document.getElementById('destacados');
         for (let key in data) {
             if (!data[key].Codigo_Inmueble)

@@ -17,13 +17,10 @@ const url = 'https://www.simi-api.com/ApiSimiweb/response/v21/inmueblesDestacado
 // Configuración de cabecera para la autenticación con la API
 const headers = new Headers();
 headers.set('Authorization', 'Basic ' + btoa(':' + '6kwdZqPVaOs6IIVwC1VLpgrf72JCKLXB9dvuVSxK-861'));
-
 document.addEventListener('DOMContentLoaded', async () => {
   try {
     const res = await fetch(url, { headers });
     const data = await res.json();
-    console.log(data);
-
     const contenedor = document.getElementById('destacados');
 
     for (let key in data) {
