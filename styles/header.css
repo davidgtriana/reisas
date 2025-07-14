@@ -19,7 +19,7 @@
 }
 
 #main-header .logo{
-    background-image: url("/assets/img/Logo_Reisas_color_white.png");
+    background-image: url("../assets/img/Logo_Reisas_color_white.png");
     height: 30px;
     width: 250px;
     background-size: contain;
@@ -102,7 +102,7 @@
 }
 
 #main-header.index.unscrolled .logo{
-    background-image: url("/assets/img/Logo_Reisas_white.png");
+    background-image: url("../assets/img/Logo_Reisas_white.png");
     height: 60px;
     width: 500px;
     transition: 0.5s ease-in-out;
