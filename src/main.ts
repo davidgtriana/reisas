@@ -22,8 +22,10 @@ async function loadMainHeader() {
 
          // ====== ADD INDEX CLASS IF ON index.html OR ROOT ======
         const header = mainHeaderElement.querySelector("#main-header")!;
+        // get just the last segment after the final slash
         const path = window.location.pathname.toLowerCase();
-        if (path === "/" || path.endsWith("index.html")) {
+        const filename = path.substring(path.lastIndexOf("/") + 1);
+        if (filename === "" || filename === "index.html") {
             header.classList.add("index");
         }
         header.classList.add("unscrolled");
