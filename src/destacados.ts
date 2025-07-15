@@ -43,8 +43,8 @@ document.addEventListener('DOMContentLoaded', async () => {
  */
 function crearCard(inmueble: Inmueble): string {
   // ✅ Cortar descripción a 100 caracteres
-  const descripcionCorta = inmueble.descripcionlarga.length > 100
-    ? inmueble.descripcionlarga.slice(0, 100) + '...'
+  const descripcionCorta = inmueble.descripcionlarga.length > 120
+    ? inmueble.descripcionlarga.slice(0, 120) + '...'
     : inmueble.descripcionlarga;
 
   return `
@@ -62,11 +62,8 @@ function crearCard(inmueble: Inmueble): string {
           &nbsp;
           <img src="assets/icon/banio-icon.svg" class="icon" /> ${inmueble.banios}
           &nbsp;
-          <img src="assets/icon/area-icon.svg" class="icon" /> ${inmueble.AreaConstruida} m²
+          <img src="assets/icon/area-icon.svg" class="icon" /> ${inmueble.AreaConstruida}
         </p>
-
-  
-
         <a href="detalle.html?codigo=${inmueble.Codigo_Inmueble}" class="btn btn--primary">Contactar</a>
       </div>
     </div>

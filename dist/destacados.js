@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', () => __awaiter(void 0, void 0, vo
  */
 function crearCard(inmueble) {
     // ✅ Cortar descripción a 100 caracteres
-    const descripcionCorta = inmueble.descripcionlarga.length > 100
-        ? inmueble.descripcionlarga.slice(0, 100) + '...'
+    const descripcionCorta = inmueble.descripcionlarga.length > 120
+        ? inmueble.descripcionlarga.slice(0, 120) + '...'
         : inmueble.descripcionlarga;
     return `
     <div class="card">
@@ -54,7 +54,7 @@ function crearCard(inmueble) {
           &nbsp;
           <img src="assets/icon/banio-icon.svg" class="icon" /> ${inmueble.banios}
           &nbsp;
-          <img src="assets/icon/area-icon.svg" class="icon" /> ${inmueble.AreaConstruida} m²
+          <img src="assets/icon/area-icon.svg" class="icon" /> ${inmueble.AreaConstruida}
         </p>
 
   

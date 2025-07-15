@@ -88,7 +88,7 @@
     background-position: right 1rem center;
 }
 
-.titulo-inmuebles-destacados {
+h2{
   font-family: "Montserrat";
   font-size: 3.9rem;
   color: var(--Foundation-Orange-Normal, #000000);
@@ -117,10 +117,9 @@
 .card {
   overflow: hidden;
   border-radius: 20px;
-  border: 3px solid var(--Foundation-Orange-Normal, #FF9000);
   background: var(--Foundation-white-Light, #FFF);
-  box-shadow: 0px 0px 8.985px 4.084px rgba(255, 144, 0, 0.54);
-  
+  box-shadow: 0px 0px 15px 5px rgba(255, 144, 0, 0.54);
+
 }
 
 .card__image {
@@ -137,8 +136,16 @@
   display: flex;
   flex-direction: column;
   font-family: "Montserrat";
+  text-align: left;
   max-width: 300px;
+  gap: 1.5rem;
 
+}
+
+.card__description {
+  font-size: 0.9rem;
+  padding: 1em ;
+  text-align: left;
 }
 
 .card__price {
@@ -150,6 +157,13 @@
   font-weight: 800;
   line-height: normal;
   
+}
+
+.card__icons .icon{
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
 }
 
 
