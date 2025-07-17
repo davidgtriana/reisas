@@ -23,7 +23,7 @@ function loadMainHeader() {
             return;
         }
         try {
-            const res = yield fetch(getRelativeRoot() + "component/main-header.html");
+            const res = yield fetch("component/main-header.html");
             if (!res.ok) {
                 console.error("Failed to load header:", res.status, res.statusText);
                 return;
