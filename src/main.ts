@@ -18,7 +18,7 @@ async function loadMainHeader() {
     }
 
     try{
-        const res = await fetch(getRelativeRoot() + "component/main-header.html");
+        const res = await fetch("component/main-header.html");
         if (!res.ok) {
             console.error("Failed to load header:", res.status, res.statusText);
             return;
