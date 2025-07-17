@@ -25,11 +25,10 @@ async function loadMainHeader() {
         }
         mainHeaderContainer.innerHTML = await res.text();
         const header = mainHeaderContainer.querySelector("#main-header");
+        if(getRelativeRoot() != "") {header!.classList.remove("index");}
         const logoLink = header!.querySelector("a.logo")! as HTMLAnchorElement;
         logoLink.href = getRelativeRoot() + "index.html";
-        if(getRelativeRoot() === "") {
-            header!.classList.add("index");
-        }
+        
     } catch (error) {
         console.error("Error loading main header:", error);
     }
