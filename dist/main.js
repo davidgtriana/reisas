@@ -10,30 +10,31 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const scrollThreshold = 50; // px scrolled before shrinking
 window.addEventListener("DOMContentLoaded", loadMainHeader);
+function getRelativeRoot() {
+    const segments = window.location.pathname.split('/').filter(Boolean);
+    const depth = Math.max(0, segments.length - 1);
+    return "../".repeat(depth);
+}
 function loadMainHeader() {
     return __awaiter(this, void 0, void 0, function* () {
-        let mainHeaderElement = document.getElementById("main-header-container");
-        if (!mainHeaderElement) {
+        let mainHeaderContainer = document.getElementById("main-header-container");
+        if (!mainHeaderContainer) {
             console.error("Main header element not found.");
             return;
         }
         try {
-            const res = yield fetch("../component/main-header.html");
+            const res = yield fetch(getRelativeRoot() + "component/main-header.html");
             if (!res.ok) {
                 console.error("Failed to load header:", res.status, res.statusText);
                 return;
             }
-            const html = yield res.text();
-            mainHeaderElement.innerHTML = html;
-            // ====== ADD INDEX CLASS IF ON index.html OR ROOT ======
-            const header = mainHeaderElement.querySelector("#main-header");
-            // get just the last segment after the final slash
-            const path = window.location.pathname.toLowerCase();
-            const filename = path.substring(path.lastIndexOf("/") + 1);
-            if (filename === "" || filename === "index.html") {
+            mainHeaderContainer.innerHTML = yield res.text();
+            const header = mainHeaderContainer.querySelector("#main-header");
+            const logoLink = header.querySelector("a.logo");
+            logoLink.href = getRelativeRoot() + "index.html";
+            if (getRelativeRoot() === "") {
                 header.classList.add("index");
             }
-            header.classList.add("unscrolled");
         }
         catch (error) {
             console.error("Error loading main header:", error);
