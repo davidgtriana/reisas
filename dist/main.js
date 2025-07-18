@@ -12,6 +12,9 @@ const scrollThreshold = 50; // px scrolled before shrinking
 window.addEventListener("DOMContentLoaded", loadMainHeader);
 function getRelativeRoot() {
     const segments = window.location.pathname.split('/').filter(Boolean);
+    if (segments[0] === 'reisas') {
+        segments.shift();
+    }
     const depth = Math.max(0, segments.length - 1);
     return "../".repeat(depth);
 }
