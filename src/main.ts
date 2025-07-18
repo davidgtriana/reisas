@@ -18,6 +18,7 @@ async function loadMainHeader() {
     }
 
     try{
+        console.log(window.location.pathname);
         console.log("Relative Root: " + getRelativeRoot() + "component/main-header.html");
         const res = await fetch(getRelativeRoot() + "component/main-header.html");
         console.log(res)

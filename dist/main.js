@@ -23,6 +23,7 @@ function loadMainHeader() {
             return;
         }
         try {
+            console.log(window.location.pathname);
             console.log("Relative Root: " + getRelativeRoot() + "component/main-header.html");
             const res = yield fetch(getRelativeRoot() + "component/main-header.html");
             console.log(res);

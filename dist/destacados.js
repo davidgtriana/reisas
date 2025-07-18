@@ -55,9 +55,6 @@ function crearCard(inmueble) {
           &nbsp;
           <img src="assets/icon/area-icon.svg" class="icon" /> ${inmueble.AreaConstruida}
         </p>
-
-  
-
         <a href="detalle.html?codigo=${inmueble.Codigo_Inmueble}" class="btn btn--primary">Contactar</a>
       </div>
     </div>
