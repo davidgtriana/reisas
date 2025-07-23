@@ -6,6 +6,7 @@ window.addEventListener("DOMContentLoaded", loadMainHeader);
 
 function getRelativeRoot() {
   const segments = window.location.pathname.split('/').filter(Boolean); 
+  if (segments[0] === 'reisas') { segments.shift();}
   const depth = Math.max(0, segments.length - 1);
   return "../".repeat(depth);
 }
@@ -18,7 +19,10 @@ async function loadMainHeader() {
     }
 
     try{
-        const res = await fetch("component/main-header.html");
+        console.log(window.location.pathname);
+        console.log("Relative Root: " + getRelativeRoot() + "component/main-header.html");
+        const res = await fetch(getRelativeRoot() + "component/main-header.html");
+        console.log(res)
         if (!res.ok) {
             console.error("Failed to load header:", res.status, res.statusText);
             return;

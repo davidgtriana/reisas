@@ -12,6 +12,9 @@ const scrollThreshold = 50; // px scrolled before shrinking
 window.addEventListener("DOMContentLoaded", loadMainHeader);
 function getRelativeRoot() {
     const segments = window.location.pathname.split('/').filter(Boolean);
+    if (segments[0] === 'reisas') {
+        segments.shift();
+    }
     const depth = Math.max(0, segments.length - 1);
     return "../".repeat(depth);
 }
@@ -23,7 +26,10 @@ function loadMainHeader() {
             return;
         }
         try {
-            const res = yield fetch("component/main-header.html");
+            console.log(window.location.pathname);
+            console.log("Relative Root: " + getRelativeRoot() + "component/main-header.html");
+            const res = yield fetch(getRelativeRoot() + "component/main-header.html");
+            console.log(res);
             if (!res.ok) {
                 console.error("Failed to load header:", res.status, res.statusText);
                 return;
